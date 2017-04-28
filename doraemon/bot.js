@@ -36,6 +36,9 @@ service.createService(opts, (bot) => {
   bot.on('image', (from, asset) => {
     console.log(`****** Got image from ${from}`);
     console.log(asset);
+    bot.sendImage(asset.asset.original.image, asset.asset.original.mime_type, asset.asset.original.image, (sendStatus) => {
+      console.log(`message successfully sent with status ${sendStatus}`);
+    });
   });
   bot.on('join', (members, conversation) => {
     console.log(`New members ${members} joined conversation ${conversation.id}`);
