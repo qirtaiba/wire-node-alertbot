@@ -34,8 +34,8 @@ service.createService(opts, (bot) => {
     });
   });
   bot.on('image', (from, asset) => {
-    console.log('****** Got image from ${from}');
-    console.log(asset.asset.original.image);
+    console.log(`****** Got image from ${from}`);
+    console.log(asset);
   });
   bot.on('join', (members, conversation) => {
     console.log(`New members ${members} joined conversation ${conversation.id}`);
