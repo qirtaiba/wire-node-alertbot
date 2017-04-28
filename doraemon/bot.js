@@ -31,10 +31,10 @@ service.createService(opts, (bot) => {
     var msg = message.text.content;
     console.log(`Got message from ${from} text: ${msg}`);
     reply = "";
-    if (msg.toLowerCase == "help") {
+    if (msg.toLowerCase() == "help") {
       reply = "get gitlab hook - give you the port number and bot ID needed to configure webhook";
     }
-    else if (msg.toLowerCase == "get gitlab hook") {
+    else if (msg.toLowerCase() == "get gitlab hook") {
       reply = `Port: ${opts.port}; Bot ID: ${bot.botID}`;
     }
 
