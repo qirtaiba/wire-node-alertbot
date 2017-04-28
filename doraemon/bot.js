@@ -20,7 +20,7 @@
 //const service = require('wire-bot-sdk-node');
 
 const service = require('../lib/service');
-const config = require('../configs/config')
+const config = require('./configs/config')
 
 var opts = config.getBotOptions();
 
