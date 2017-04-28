@@ -1,6 +1,1 @@
-node_modules
-test
-*~
-.idea/
-example/server.crt
-example/server.key
+configs
