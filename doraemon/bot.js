@@ -33,6 +33,24 @@ service.createService(opts, (bot) => {
       console.log(`message successfully sent with status ${sendStatus}`);
     });
   });
+  bot.on('gitlabPush', (data) => {
+    console.log("Got push event from gitlab")
+    bot.sendMessage("stop pushing!", (sendStatus) => {
+      console.log(`message successfully sent with status ${sendStatus}`);
+    });
+  });
+  bot.on('join', (members, conversation) => {
+    console.log(`New members ${members} joined conversation ${conversation.id}`);
+    bot.sendMessage('welcome', (sendStatus) => {
+      console.log(`message successfully sent with status ${sendStatus}`);
+    });
+  });
+  bot.on('leave', (members, conversation) => {
+    console.log(`Members ${members} have left conversation ${conversation.id}`);
+  });
+  bot.on('rename', (name, conversation) => {
+    console.log(`Conversation ${conversation.id} renamed to ${name}`);
+  });
   bot.on('image', (from, asset) => {
     console.log(`****** Got image from ${from}`);
 
@@ -54,17 +72,5 @@ service.createService(opts, (bot) => {
       console.log(`message successfully sent with status ${sendStatus}`);
     });
     */
-  });
-  bot.on('join', (members, conversation) => {
-    console.log(`New members ${members} joined conversation ${conversation.id}`);
-    bot.sendMessage('welcome', (sendStatus) => {
-      console.log(`message successfully sent with status ${sendStatus}`);
-    });
-  });
-  bot.on('leave', (members, conversation) => {
-    console.log(`Members ${members} have left conversation ${conversation.id}`);
-  });
-  bot.on('rename', (name, conversation) => {
-    console.log(`Conversation ${conversation.id} renamed to ${name}`);
   });
 });
