@@ -35,10 +35,25 @@ service.createService(opts, (bot) => {
   });
   bot.on('image', (from, asset) => {
     console.log(`****** Got image from ${from}`);
+
+    /*
     console.log(asset);
+
+    { message_id: 'f277ba7b-0d3a-46b6-9cd6-16e08de5c1aa',
+    asset: 
+    {original: { mime_type: 'image/png', size: 355, name: '', image: [Object] },
+     uploaded: 
+      { otr_key: <Buffer 21 1b aa e0 7a b5 ed 0a 3d 89 27 73 e5 af 7e f5 56 0d 7c b3 9f c6 5b f7 a3 42 93 00 6d a3 e3 26>,
+        sha256: <Buffer 4d 5b 51 5e 48 d6 ac d7 71 26 12 59 10 23 12 23 b6 99 ac 3b 38 30 9e 49 14 28 53 36 42 6e 2b c6>,
+        asset_id: '3-2-cbcad9b9-19b4-406c-b560-aeb6de1418fe',
+        asset_token: 'r5gfiW-wlLDXBed5_3M4kg==' },
+     preview: null } }
+     */
+    /*
     bot.sendImage(asset.asset.original.image, asset.asset.original.mime_type, asset.asset.original.image, (sendStatus) => {
       console.log(`message successfully sent with status ${sendStatus}`);
     });
+    */
   });
   bot.on('join', (members, conversation) => {
     console.log(`New members ${members} joined conversation ${conversation.id}`);
