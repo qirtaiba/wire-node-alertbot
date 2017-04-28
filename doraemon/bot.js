@@ -29,9 +29,19 @@ service.createService(opts, (bot) => {
   console.log(`Bot instance created ${bot.botID}`);
   bot.on('message', (from, message) => {
     console.log(`Got message from ${from} text: ${message.text}`);
-//    bot.sendMessage(message.text.content, (sendStatus) => {
-//      console.log(`message successfully sent with status ${sendStatus}`);
-//    });
+    reply = "";
+    if (message.text.toLowerCase == "help") {
+      reply = "get gitlab hook - give you the port number and bot ID needed to configure webhook";
+    }
+    else if (message.text.toLowerCase == "get gitlab hook") {
+      reply = `Port: ${opts.port}; Bot ID: ${bot.botID}`;
+    }
+
+    if (reply != "") {
+      bot.sendMessage(reply, (sendStatus) => {
+        console.log(`message successfully sent with status ${sendStatus}`);
+      });
+    }
   });
   bot.on('gitlabPush', (data) => {
     console.log("Got push event from gitlab")
