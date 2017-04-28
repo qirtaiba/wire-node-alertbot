@@ -33,6 +33,10 @@ service.createService(opts, (bot) => {
       console.log(`message successfully sent with status ${sendStatus}`);
     });
   });
+  bot.on('image', (from, asset) => {
+    console.log('****** Got image from ${from}');
+    console.log(asset.asset.original.image);
+  });
   bot.on('join', (members, conversation) => {
     console.log(`New members ${members} joined conversation ${conversation.id}`);
     bot.sendMessage('welcome', (sendStatus) => {
