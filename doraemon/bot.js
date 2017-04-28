@@ -29,9 +29,9 @@ service.createService(opts, (bot) => {
   console.log(`Bot instance created ${bot.botID}`);
   bot.on('message', (from, message) => {
     console.log(`Got message from ${from} text: ${message.text}`);
-    bot.sendMessage(message.text.content, (sendStatus) => {
-      console.log(`message successfully sent with status ${sendStatus}`);
-    });
+//    bot.sendMessage(message.text.content, (sendStatus) => {
+//      console.log(`message successfully sent with status ${sendStatus}`);
+//    });
   });
   bot.on('gitlabPush', (data) => {
     console.log("Got push event from gitlab")
@@ -43,9 +43,9 @@ service.createService(opts, (bot) => {
   });
   bot.on('join', (members, conversation) => {
     console.log(`New members ${members} joined conversation ${conversation.id}`);
-    bot.sendMessage('welcome', (sendStatus) => {
-      console.log(`message successfully sent with status ${sendStatus}`);
-    });
+//    bot.sendMessage('welcome', (sendStatus) => {
+//      console.log(`message successfully sent with status ${sendStatus}`);
+//    });
   });
   bot.on('leave', (members, conversation) => {
     console.log(`Members ${members} have left conversation ${conversation.id}`);
@@ -70,6 +70,7 @@ service.createService(opts, (bot) => {
      preview: null } }
      */
     /*
+    bot.getAsset?
     bot.sendImage(asset.asset.original.image, asset.asset.original.mime_type, asset.asset.original.image, (sendStatus) => {
       console.log(`message successfully sent with status ${sendStatus}`);
     });
