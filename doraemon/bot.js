@@ -28,12 +28,13 @@ var opts = config.getBotOptions();
 service.createService(opts, (bot) => {
   console.log(`Bot instance created ${bot.botID}`);
   bot.on('message', (from, message) => {
-    console.log(`Got message from ${from} text: ${message.text}`);
+    var msg = message.text.content;
+    console.log(`Got message from ${from} text: ${msg}`);
     reply = "";
-    if (message.text.toLowerCase == "help") {
+    if (msg.toLowerCase == "help") {
       reply = "get gitlab hook - give you the port number and bot ID needed to configure webhook";
     }
-    else if (message.text.toLowerCase == "get gitlab hook") {
+    else if (msg.toLowerCase == "get gitlab hook") {
       reply = `Port: ${opts.port}; Bot ID: ${bot.botID}`;
     }
 
