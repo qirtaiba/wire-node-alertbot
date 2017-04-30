@@ -42,6 +42,9 @@ service.createService(opts, (bot) => {
     else if (msg.toLowerCase() == "get gitlab token") {
       reply = bot.getGitlabToken();
     }
+    else if (msg.toLowerCase() == "reset gitlab token") {
+      reply = bot.getGitlabToken(true);
+    }
 
     if (reply != "") {
       bot.sendMessage(reply, (sendStatus) => {
