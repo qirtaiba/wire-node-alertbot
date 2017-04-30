@@ -37,6 +37,9 @@ service.createService(opts, (bot) => {
     else if (msg.toLowerCase() == "get gitlab hook") {
       reply = `Port: ${opts.port}; Bot ID: ${bot.botID}`;
     }
+    else if (msg.toLowerCase() == "get gitlab token") {
+      reply = bot.getGitlabToken();
+    }
 
     if (reply != "") {
       bot.sendMessage(reply, (sendStatus) => {
