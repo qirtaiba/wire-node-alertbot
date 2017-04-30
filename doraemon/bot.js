@@ -33,6 +33,8 @@ service.createService(opts, (bot) => {
     reply = "";
     if (msg.toLowerCase() == "help") {
       reply = "get gitlab hook - give you the port number and bot ID needed to configure webhook";
+      reply += "\nget gitlab token - give you the secret token needed to configure webhook. Unique per chat.";
+      reply += "\nreset gitlab token - reset the secret token needed to configure webhook. Old hooks will break!";
     }
     else if (msg.toLowerCase() == "get gitlab hook") {
       reply = `Port: ${opts.port}; Bot ID: ${bot.botID}`;
