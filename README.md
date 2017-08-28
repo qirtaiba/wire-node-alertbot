@@ -24,3 +24,5 @@ module.exports = {
   },
 };
 ```
+
+The reference version of this bot is running on Wire as terminusbot. To test it out, you can connect to https://app.wire.com/?bot=terminusbot.
